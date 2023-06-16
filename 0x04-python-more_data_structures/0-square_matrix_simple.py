@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
     square = []
 
@@ -5,5 +6,4 @@ def square_matrix_simple(matrix=[]):
         for j in range(len(matrix[i])):
             square[i][j] = matrix[i][j] ** 2
 
-    return square
-
+    return (square)
