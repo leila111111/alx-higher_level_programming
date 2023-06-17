@@ -6,4 +6,4 @@ def uniq_add(my_list=[]):
         if i not in unique:
             res += i
             unique.append(i)
-    retur(res)
+    return(res)
