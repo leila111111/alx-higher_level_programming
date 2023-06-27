@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 def safe_print_list(my_list=[], x=0):
     j = 0
-    try:
-        for i in my_list:
+    for i in my_list:
+        try:
             print(i, end=' ')
             j += 1
-            if j == x:
-                break
-    except TypeError:
-        print("Error: can't find element.")
+        except TypeError:
+            break
     print("")
     return (j)
