@@ -5,9 +5,9 @@ def safe_print_list(my_list=[], x=0):
         for i in my_list:
             print(i, end=' ')
             j += 1
-            if i == x:
+            if j == x:
                 break
     except TypeError:
-        print("Error: Invalid list element.")
+        print("Error: can't find element.")
     print("")
-    return (i)
+    return (j)
