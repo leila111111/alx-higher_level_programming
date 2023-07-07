@@ -12,15 +12,17 @@ def text_indentation(text):
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
+    punctuation = ['.', '?', ':']
     lenght = 0
     while text[lenght] == ' ' and lenght < len(text):
         lenght += 1
     while lenght < len(text):
         print(text[lenght], end="")
-        if text[lenght] in punctuation:
-            print("\n")
-        lenght += 1
-        while lenght < len(text) and text[lenght] == ' ':
+        if text[lenght] == "\n" or text[lenght] in punctuation:
+            if text[lenght] in punctuation:
+                print("\n")
             lenght += 1
-        continue
+            while lenght < len(text) and text[lenght] == ' ':
+                lenght += 1
+            continue
         lenght += 1
