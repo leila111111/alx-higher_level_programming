@@ -3,6 +3,8 @@
 function that prints a text with 2 new lines
 after each of these characters: ., ? and :
 """
+
+
 def text_indentation(text):
     """
     function that prints a text with 2 new lines
@@ -19,5 +21,6 @@ def text_indentation(text):
             print("\n")
         lenght += 1
         while lenght < len(text) and text[lenght] == ' ':
-            lenght += 1                                                                                                     continue
+            lenght += 1
+        continue
         lenght += 1
