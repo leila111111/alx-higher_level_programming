@@ -31,6 +31,11 @@ ZeroDivisionError: division by zero
 Traceback (most recent call last):
 TypeError: div must be a number
 
+>>> matrix = [[1, 2, 3],[1, 2, 3]]
+>>> print(matrix_divided(matrix, "hello"))
+Traceback (most recent call last):
+TypeError: div must be a number
+
 >>> matrix = [[1, 2, 3, 4],[1, 2, 3]]
 >>> print(matrix_divided(matrix, 2))
 Traceback (most recent call last):
