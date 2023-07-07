@@ -8,3 +8,7 @@ My name is lili
 >>> say_my_name("lili", 1)
 Traceback (most recent call last):
 TypeError: first_name must be a string
+
+>>> say_my_name(8, "lili")
+Traceback (most recent call last):
+TypeError: last_name must be a string
