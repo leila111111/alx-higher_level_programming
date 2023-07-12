@@ -22,4 +22,4 @@ class Student:
             if hasattr(self, attr):
                 new = getattr(self, attr)
                 dictio[attr] = new
-        return dictio     
+        return dictio
