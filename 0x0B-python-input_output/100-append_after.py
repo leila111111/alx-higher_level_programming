@@ -9,7 +9,9 @@ def append_after(filename="", search_string="", new_string=""):
     text to a file, after each line
     containing a specific"""
     with open(filename, "r") as fr:
-        for line in fr:
-            fr.write(line)
+        strings = fr.readlines()
+    with open(filename, "w") as w:
+        for line in strings:
+            w.write(line)
             if search_string in line:
-                file.write(new_string)
+                w.write(new_string)
