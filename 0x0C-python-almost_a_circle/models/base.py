@@ -41,3 +41,10 @@ class Base:
                 for i in list_objs:
                     dictio_list.append(i.to_dictionary())
                 jsonfile.write(Base.to_json_string(dictio_list))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ returns the list of the JSON string representation"""
+        if not json_string:
+            return []
+        return json.loads(json_string)
