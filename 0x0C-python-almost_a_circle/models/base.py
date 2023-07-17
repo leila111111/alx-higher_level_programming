@@ -58,3 +58,17 @@ class Base:
             up = cls(2)
         up.update(**dictionary)
         return up
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances:"""
+        file_name = cls.__name__ + '.json'
+        if not os.path.exists(file_name):
+            return []
+        with open(file_name, "r") as readeb:
+            the_list = readeb.read()
+        this_list = []
+        seco_list = cls.from_json_string(the_list)
+        for i in range(len(seco_list)):
+            this_list.append(cls.create(**seco_list[i]))
+        return this_list
