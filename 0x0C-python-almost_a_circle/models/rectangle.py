@@ -81,6 +81,6 @@ class Rectangle(Base):
         instance with the character #"""
         disp = "\n" * self.y
         for i in range(self.height):
-            disp = (" " * self.x) + ("#" * self.width) + "\n"
+            disp += (" " * self.x) + ("#" * self.width) + "\n"
 
         print(disp, end='')
