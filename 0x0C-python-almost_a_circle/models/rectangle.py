@@ -6,6 +6,7 @@ from models.base import Base
 
 class Rectangle(Base):
     """rectangle class"""
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """initialising rectangle"""
         self.width = width
@@ -60,6 +61,7 @@ class Rectangle(Base):
         def y(self):
             """y coordinate of rectangle"""
             return self.__y
+
         @y.setter
         def y(self, value):
             """ y setter"""
