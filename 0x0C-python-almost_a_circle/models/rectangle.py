@@ -84,6 +84,7 @@ class Rectangle(Base):
             disp += (" " * self.x) + ("#" * self.width) + "\n"
 
         print(disp, end='')
+
     def __str__(self):
         """method so that it returns [Rectangle] (<id>) <x>/<y> -
         <width>/<height>"""
