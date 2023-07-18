@@ -91,7 +91,7 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         """ deserialization csv method"""
-        filename = cls.__name__ + ".csv"
+        file_name = cls.__name__ + ".csv"
         if not os.path.exists(file_name):
             return []
         with open(file_name, "r") as readfile:
