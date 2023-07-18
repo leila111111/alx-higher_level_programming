@@ -104,3 +104,28 @@ class Base:
             list_sec = [dict([j, int(k)] for j, k in i.items())
                         for i in list_sec]
             return [cls.create(**i) for i in list_sec]
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """opens a window and draws all the Rectangles and Squares:"""
+        for rectangles in list_rectangles:
+            up()
+            goto(rectangles.x, rectangles.y)
+            down()
+            color("#b5e3d8")
+            for i in range(2):
+                forward(rectangles.width)
+                left(90)
+                forward(rectangles.height)
+                left(90)
+        for squares in list_squares:
+            up()
+            goto(squares.x, squares.y)
+            down()
+            color("#00246B")
+            for i in range(2):
+                forward(squares.width)
+                left(90)
+                forward(squares.height)
+                left(90)
+        done()
