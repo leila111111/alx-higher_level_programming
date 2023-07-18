@@ -72,3 +72,34 @@ class Base:
         for i in range(len(seco_list)):
             this_list.append(cls.create(**seco_list[i]))
         return this_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """ serialization CSV method"""
+        filename = cls.__name__ + ".csv"
+        with open(filename, "w") as writefile:
+            if list_objs is None or list_objs == []:
+                writefile.write("[]")
+            else:
+                for i in list_objs:
+                    if cls.__name__ == "Rectangle":
+                        list_file = [i.id, i.width, i.height, i.x, i.y]
+                    else:
+                        list_file = [i.id, i.size, i.x, i.y]
+                    (csv.writer(writefile)).writerow(list_file)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """ deserialization csv method"""
+        filename = cls.__name__ + ".csv"
+        if not os.path.exists(file_name):
+            return []
+        with open(file_name, "w") as writefile:
+            if cls.__name__ == "Rectangle":
+                list_file = ["id", "width", "height", "x", "y"]
+            if cls.__name__ == 'Square':
+                list_file = ["id", "size", "x", "y"]
+            list_sec = csv.DictReader(writefile, list_file=list_file)
+            list_sec = [dict([j, int(k)] for j, k in i.items())
+                              for i in list_sec]
+            return [cls.create(**i) for i in list_sec]
