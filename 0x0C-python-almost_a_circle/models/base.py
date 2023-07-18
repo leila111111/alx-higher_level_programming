@@ -93,17 +93,18 @@ class Base:
     def load_from_file_csv(cls):
         """ deserialization csv method"""
         file_name = cls.__name__ + ".csv"
-        if not os.path.exists(file_name):
+        try:
+            with open(file_name, "r") as readfile:
+                if cls.__name__ == "Rectangle":
+                    list_file = ["id", "width", "height", "x", "y"]
+                if cls.__name__ == 'Square':
+                    list_file = ["id", "size", "x", "y"]
+                list_sec = csv.DictReader(readfile, list_file=list_file)
+                list_sec = [dict([j, int(k)] for j, k in i.items())
+                            for i in list_sec]
+                return [cls.create(**i) for i in list_sec]
+        except IOError:
             return []
-        with open(file_name, "r") as readfile:
-            if cls.__name__ == "Rectangle":
-                list_file = ["id", "width", "height", "x", "y"]
-            if cls.__name__ == 'Square':
-                list_file = ["id", "size", "x", "y"]
-            list_sec = csv.DictReader(readfile, list_file=list_file)
-            list_sec = [dict([j, int(k)] for j, k in i.items())
-                        for i in list_sec]
-            return [cls.create(**i) for i in list_sec]
 
     @staticmethod
     def draw(list_rectangles, list_squares):
