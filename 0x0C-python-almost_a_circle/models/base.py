@@ -78,6 +78,7 @@ class Base:
         """ serialization CSV method"""
         filename = cls.__name__ + ".csv"
         with open(filename, "w") as writefile:
+            csvwriter = csv.writer(writefile)
             if list_objs is None or list_objs == []:
                 writefile.write("[]")
             else:
@@ -86,7 +87,7 @@ class Base:
                         list_file = [i.id, i.width, i.height, i.x, i.y]
                     else:
                         list_file = [i.id, i.size, i.x, i.y]
-                    (csv.writer(writefile)).writerow(list_file)
+                    csvwriter.writerow(list_file)
 
     @classmethod
     def load_from_file_csv(cls):
