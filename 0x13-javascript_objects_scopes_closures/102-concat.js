@@ -1,5 +1,5 @@
 #!/usr/bin/node
-const files = require('files');
-const i = files.readFile(process.argv[2]);
-const j = files.readFile(process.argv[3]);
-files.writeFile(process.argv[4], i + j);
+const files = require('fs');
+const i = files.readFileSync(process.argv[2]);
+const j = files.readFileSync(process.argv[3]);
+files.writeFileSync(process.argv[4], i + j);
