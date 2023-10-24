@@ -8,7 +8,7 @@ request(url, (error, response, body) => {
     const responses = JSON.parse(body);
     for (const i in responses) {
       const ji = responses[i];
-      if (ji.result) {
+      if (ji.completed) {
         if (result[ji.userId] === undefined) {
           result[ji.userId] = 1;
         } else {
